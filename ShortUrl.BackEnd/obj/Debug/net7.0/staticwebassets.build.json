@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "aCF22KHiFoWIy8quWUudq6GdsjmQuSGKSD+D0BP++94=",
+  "Source": "ShortUrl.BackEnd",
+  "BasePath": "_content/ShortUrl.BackEnd",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

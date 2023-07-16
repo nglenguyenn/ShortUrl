@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using ShortUrl.BackEnd.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,7 +10,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//Add services for Sql Server
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<UrlDbContext>(options =>
+    options.UseSqlServer(connectionString));
+
 var app = builder.Build();
+app.UseCors(policy => policy.AllowAnyHeader()
+    .AllowAnyMethod()
+    .SetIsOriginAllowed(origin => true)
+    .AllowCredentials());
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
